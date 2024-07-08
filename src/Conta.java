@@ -22,6 +22,29 @@ public class Conta {
         while (opcao != 4) {
             System.out.println(operacoes);
             opcao = leitor.nextInt();
+
+            if (opcao == 1) {
+                System.out.println("Nome do cliente: " + nome);
+                System.out.println("Saldo atual: " + saldo);
+            } else if (opcao == 2) {
+                System.out.println("Informe o valor a receber: ");
+                double valorReceber = leitor.nextDouble();
+                double novoSaldo = saldo + valorReceber;
+                System.out.println("Nome do cliente: " + nome);
+                System.out.println("Novo saldo: " + novoSaldo);
+            } else if (opcao == 3) {
+                System.out.println("Informe o valor que deseja transferir: ");
+                double valorTransferir = leitor.nextDouble();
+                double novoSaldo = saldo - valorTransferir;
+                if (saldo < valorTransferir) {
+                    System.out.println("Não há saldo suficiente para fazer essa transferência");
+                } else {
+                    System.out.println("Nome do cliente: " + nome);
+                    System.out.println("Novo saldo: " + novoSaldo);
+                }
+            } else {
+                System.out.println("Opção inválida.");
+            }
         }
     }
 }
